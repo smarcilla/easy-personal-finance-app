@@ -1,3 +1,3 @@
-export interface FinanceTransaction{
-    type:'income'|'expense'
+export interface FinanceTransaction {
+  type: 'income' | 'expense'
 }
