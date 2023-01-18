@@ -18,7 +18,7 @@ export default function Index() {
         <div className="text-3xl font-bold text-center">Easy Personal Finance App</div>
          <ul className='text-center'>
       {data.map((ft:FinanceTransaction) => (
-        <li key={ft.type}>{ft.type}</li>
+        <li key={ft.id}>{ft.type} - {ft.id} - {ft.amount}</li>
       ))}
     </ul>
         </>
