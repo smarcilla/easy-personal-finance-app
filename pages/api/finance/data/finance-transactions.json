@@ -1,0 +1,137 @@
+{
+  "data": [
+    {
+      "date": "01/01/2022",
+      "concept": "Transferencia bancaria",
+      "movement": "Alquiler",
+      "amount": "-1500",
+      "notes": "ALQUILER ENERO"
+    },
+    {
+      "date": "02/01/2022",
+      "concept": "Pago con tarjeta",
+      "movement": "Supermercado",
+      "amount": "-100",
+      "notes": "COMPRAS SEMANALES"
+    },
+    {
+      "date": "05/01/2022",
+      "concept": "Ingreso",
+      "movement": "Nómina",
+      "amount": "3000",
+      "notes": "SALARIO ENERO"
+    },
+    {
+      "date": "10/01/2022",
+      "concept": "Pago con tarjeta",
+      "movement": "Gasolina",
+      "amount": "-50",
+      "notes": "LLENADO DE TANQUE"
+    },
+    {
+      "date": "15/01/2022",
+      "concept": "Transferencia bancaria",
+      "movement": "Mensualidad coche",
+      "amount": "-300",
+      "notes": "PAGO DE COCHE"
+    },
+    {
+      "date": "20/01/2022",
+      "concept": "Pago con tarjeta",
+      "movement": "Restaurante",
+      "amount": "-50",
+      "notes": "CENA CON AMIGOS"
+    },
+    {
+      "date": "25/01/2022",
+      "concept": "Ingreso",
+      "movement": "Venta de acciones",
+      "amount": "1000",
+      "notes": "GANANCIAS BOLSA"
+    },
+    {
+      "date": "01/02/2022",
+      "concept": "Transferencia bancaria",
+      "movement": "Mensualidad gimnasio",
+      "amount": "-50",
+      "notes": "PAGO DE GIMNASIO"
+    },
+    {
+      "date": "05/02/2022",
+      "concept": "Pago con tarjeta",
+      "movement": "Libros",
+      "amount": "-30",
+      "notes": "COMPRAS DE LIBROS"
+    },
+    {
+      "date": "10/02/2022",
+      "concept": "Ingreso",
+      "movement": "Intereses bancarios",
+      "amount": "50",
+      "notes": "INTERESES CUENTA AHORRO"
+    },
+    {
+      "date": "15/02/2022",
+      "concept": "Transferencia bancaria",
+      "movement": "Mensualidad seguro",
+      "amount": "-100",
+      "notes": "PAGO DE SEGURO"
+    },
+    {
+      "date": "20/02/2022",
+      "concept": "Pago con tarjeta",
+      "movement": "Ropa",
+      "amount": "-75",
+      "notes": "COMPRAS DE ROPA"
+    },
+    {
+      "date": "25/02/2022",
+      "concept": "Ingreso",
+      "movement": "Devolución de impuestos",
+      "amount": "200",
+      "notes": "DEVOLUCIÓN DE IMPUESTOS"
+    },
+    {
+      "date": "01/03/2022",
+      "concept": "Transferencia bancaria",
+      "movement": "Mensualidad préstamo",
+      "amount": "-200",
+      "notes": "PAGO DE PRÉSTAMO"
+    },
+    {
+      "date": "05/03/2022",
+      "concept": "Pago con tarjeta",
+      "movement": "Entretenimiento",
+      "amount": "-50",
+      "notes": "SALIDA CON AMIGOS"
+    },
+    {
+      "date": "10/03/2022",
+      "concept": "Ingreso",
+      "movement": "Regalo de cumpleaños",
+      "amount": "100",
+      "notes": "REGALO DE CUMPLEAÑOS"
+    },
+    {
+      "date": "15/03/2022",
+      "concept": "Transferencia bancaria",
+      "movement": "Mensualidad internet",
+      "amount": "-50",
+      "notes": "PAGO DE INTERNET"
+    },
+    {
+      "date": "20/03/2022",
+      "concept": "Pago con tarjeta",
+      "movement": "Viaje",
+      "amount": "-1000",
+      "notes": "VIAJE DE FIN DE SEMANA"
+    },
+    {
+      "date": "25/03/2022",
+      "concept": "Ingreso",
+      "movement": "Venta de objetos usados",
+      "amount": "75",
+      "notes": "VENTA DE OBJETOS USADOS"
+    }
+  ]
+}
