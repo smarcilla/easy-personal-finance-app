@@ -7,6 +7,7 @@ const FinancialTransaction = ({ transaction }) => {
         <div className="border-solid border-black p-4 flex-1">{transaction.concept}</div>
         <div className="border-solid border-black p-4 flex-1">{transaction.movement}</div>
         <div className="border-solid border-black p-4 flex-1">{transaction.amount}</div>
+        <div className="border-solid border-black p-4 flex-1">{transaction.type}</div>
         <div className="border-solid border-black p-4 flex-1">{transaction.notes}</div>
       </div>
     </div>

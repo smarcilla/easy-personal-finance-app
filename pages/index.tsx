@@ -25,6 +25,7 @@ export default function Index() {
         <th>Concept</th>
         <th>Movement</th>
         <th>Amount</th>
+        <th>Type</th>
         <th>Notes</th>
         </tr>
         </thead>
