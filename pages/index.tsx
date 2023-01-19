@@ -9,19 +9,24 @@ export default function Index() {
     fetcher,
   )
 
-  if (error) return <div className="text-3xl font-bold underline">Failed to load</div>
-  if (isLoading) return <div className="text-3xl font-bold underline">Loading...</div>
+  if (error)
+    return <div className="text-3xl font-bold underline">Failed to load</div>
+  if (isLoading)
+    return <div className="text-3xl font-bold underline">Loading...</div>
   if (!data) return null
 
   return (
-        <>
-        <div className="text-3xl font-bold text-center">Easy Personal Finance App</div>
-         <ul className='text-center'>
-      {data.map((ft:FinanceTransaction) => (
-        <li key={ft.id}>{ft.type} - {ft.id} - {ft.amount}</li>
-      ))}
-    </ul>
-        </>
-   
+    <>
+      <div className="text-3xl font-bold text-center">
+        Easy Personal Finance App
+      </div>
+      <ul className="text-center">
+        {data.map((ft: FinanceTransaction) => (
+          <li key={ft.id}>
+            {ft.type} - {ft.id} - {ft.amount}
+          </li>
+        ))}
+      </ul>
+    </>
   )
 }
