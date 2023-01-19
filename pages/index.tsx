@@ -1,5 +1,6 @@
 import useSWR from 'swr'
 import { FinanceTransaction } from './interfaces'
+import FinancialTransaction from './FinancialTransaction'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
