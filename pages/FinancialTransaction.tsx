@@ -15,7 +15,7 @@ const FinancialTransaction: React.FC<Props> = ({ transaction }) => {
     <div className="border border-black">
       <div className="flex">
         <div className="border-solid border-black w-1/5 p-2">
-          {transaction.date}
+          {transaction.date?.toString()}
         </div>
         <div className="border-solid border-black w-1/5 p-2">
           {transaction.concept}

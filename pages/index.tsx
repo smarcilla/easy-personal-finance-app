@@ -23,9 +23,7 @@ export default function Index() {
       </div>
       <ul className="text-center">
         {data.map((ft: FinanceTransaction) => (
-          <li key={ft.id}>
-            {ft.type} - {ft.id} - {ft.amount}
-          </li>
+          <FinancialTransaction key={ft.id} transaction={ft} />
         ))}
       </ul>
     </>
