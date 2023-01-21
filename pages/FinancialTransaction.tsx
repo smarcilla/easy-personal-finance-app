@@ -12,25 +12,25 @@ interface Props {
 
 const FinancialTransaction: React.FC<Props> = ({ transaction }) => {
   return (
-    <div className="border border-black">
-      <div className="flex">
-        <div className="border-solid border-black w-1/5 p-2">
-          {transaction.date?.toString()}
-        </div>
-        <div className="border-solid border-black w-1/5 p-2">
-          {transaction.concept}
-        </div>
-        <div className="border-solid border-black w-1/5 p-2">
-          {transaction.movement}
-        </div>
-        <div className="border-solid border-black w-1/5 p-2">
-          {transaction.amount}
-        </div>
-        <div className="border-solid border-black w-1/5 p-2">
-          {transaction.notes}
+        <div className='bg-slate-150'>
+        <div className="flex shadow">
+          <div className="w-1/5 py-4 px-6">
+            {transaction.date?.toString()}
+          </div>
+          <div className="w-1/5 py-4 px-6">
+            {transaction.concept}
+          </div>
+          <div className="w-1/5 py-4 px-6">
+            {transaction.movement}
+          </div>
+          <div className="w-1/5 py-4 px-6">
+            {transaction.amount}
+          </div>
+          <div className="w-1/5 py-4 px-6">
+            {transaction.notes}
+          </div>
         </div>
       </div>
-    </div>
   )
 }
 
