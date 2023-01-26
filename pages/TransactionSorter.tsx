@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
+import useSWR from 'swr'
 import Link from 'next/link'
+import { FinanceTransaction } from './interfaces'
 
-function TransactionSorter() {
+const TransactionSorter = () => {
+  const fetcher = (url: string) => fetch(url).then((res) => res.json())
+
+  const { data } = useSWR<FinanceTransaction[]>('/api/finance', fetcher)
+
+  const [selectedOption, setSelectedOption] = useState<string>('month')
+
+  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedOption(event.target.value)
+  }
+
   return (
     <>
       <div className="bg-gray-100">
@@ -14,10 +26,12 @@ function TransactionSorter() {
               id="topic"
               name="topic"
               className="block appearance-none w-full p-2 rounded-md bg-gray-200 text-gray-700 border-gray-400 border focus:outline-none"
+              value={selectedOption}
+              onChange={handleSelectChange}
             >
+              <option value="month">Month</option>
               <option value="concept">Concept</option>
               <option value="movement">Movement</option>
-              <option value="month">Month</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
               <svg
@@ -30,6 +44,20 @@ function TransactionSorter() {
             </div>
           </div>
         </nav>
+
+        <div className="mt-3">
+          {data?.map((item) => (
+            <li className="list-none text-left px-8 py-2" key={item.id}>
+              {selectedOption === 'month'
+                ? item.date?.toString()
+                : selectedOption === 'concept'
+                ? item.concept
+                : selectedOption === 'movement'
+                ? item.movement
+                : ''}
+            </li>
+          ))}
+        </div>
       </div>
     </>
   )
