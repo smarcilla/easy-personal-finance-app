@@ -29,10 +29,10 @@ export default function Index() {
             Home
           </Link>
           <Link
-            href="/TransactionSorter"
+            href="/TransactionFilter"
             className="text-white font-medium ml-6"
           >
-            Transaction Sorter
+            Filtered
           </Link>
           <a href="#" className="text-white font-medium ml-6">
             Settings
