@@ -1,13 +1,30 @@
 import { data } from './data/finance-transactions.json'
 import { EasyFinance } from 'easy-personal-finance'
 import { FinanceTransactionEntity } from 'easy-personal-finance/lib/entities'
+import Link from 'next/link'
 
 //components
 type TransactionSearcherProps = {
   text: string
 }
 const TransactionSearcher: React.FC<TransactionSearcherProps> = ({ text }) => {
-  return <div>transaction searcher: ...{text}</div>
+  return (
+    <nav className="bg-gray-800 p-3 flex justify-center items-center">
+      <Link href="/" className="text-white mt-4 font-medium w-1/4 flex-initial">
+        Home
+      </Link>
+      <div className="w-3/4 p-3 flex-initial">
+        <input
+          className="bg-dark text-light border-0 mt-4 text-center placeholder-gray-500 rounded-md py-2 pr-4 pl-10 block w-full appearance-none leading-normal"
+          type="text"
+          placeholder="Search your transaction"
+          autoFocus
+          /*     onChange={handleChange}*/
+          value={text}
+        />
+      </div>
+    </nav>
+  )
 }
 
 type TransactionProps = {
