@@ -19,7 +19,7 @@
     "@types/react-dom": "18.0.10",
     "autoprefixer": "^10.4.13",
     "cz-conventional-changelog": "^3.3.0",
-    "easy-personal-finance": "^2.0.0",
+    "easy-personal-finance": "^2.1.2",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.2",
     "next": "13.1.2",
