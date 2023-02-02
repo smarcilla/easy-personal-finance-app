@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from '../styles/FilePreview.module.css'
 
-const FilePreview = ({ fileData }) => {
+interface FilePreviewProps {
+  fileData: {
+    fileList: Array<{
+      lastModified: number
+      name: string
+    }>
+  }
+}
+
+const FilePreview: React.FC<FilePreviewProps> = ({ fileData }) => {
   return (
     <div className={styles.fileList}>
       <div className={styles.fileContainer}>
