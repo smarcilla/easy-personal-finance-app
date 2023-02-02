@@ -55,12 +55,13 @@ const DropZone: React.FC<Props> = ({ data, dispatch }) => {
 
   const uploadFiles = async () => {
     let files = data.fileList
-    const formData = new FormData()
-    files.forEach((file) => formData.append('files', file))
+    const urlFile = URL.createObjectURL(files[0])
+    console.log(urlFile)    
+    //files.forEach((file) => formData.append('files', file))
 
     const response = await fetch('/api/finance', {
       method: 'POST',
-      body: formData,
+      body: JSON.stringify({url:urlFile}),
     })
 
     if (response.ok) {
