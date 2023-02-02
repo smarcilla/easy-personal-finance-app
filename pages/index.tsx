@@ -92,7 +92,7 @@ export default function Index() {
           their finances.
         </p>
       </section>
-      <div className="grid grid-cols-1 p-6 md:grid-cols-4 lg:grid-cols-5">
+      {/*     <div className="grid grid-cols-1 p-6 md:grid-cols-4 lg:grid-cols-5">
         <div className="col-span-1 md:col-span-1 lg:col-span-1 py-4 px-6 bg-gray-200 font-medium rounded-tl">
           Date
         </div>
@@ -113,7 +113,7 @@ export default function Index() {
             <FinancialTransaction transaction={ft} />
           </div>
         ))}
-      </div>
+      </div> */}
     </>
   )
 }
