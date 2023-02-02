@@ -3,12 +3,19 @@ import { EasyFinance } from 'easy-personal-finance'
 import { FinanceTransaction } from '@/pages/interfaces'
 import financeData from './data/finance-transactions.json'
 import crypto from 'crypto'
+import {FinanceDataConverter} from '../../../lib/index'
 
 //https://github.com/vercel/next.js/blob/canary/examples/api-routes/pages/api/people/index.ts
 export default function handler(
   _req: NextApiRequest,
   res: NextApiResponse<FinanceTransaction[]>,
 ) {
+  if(_req.method==='POST'){
+    console.log(_req.body)   
+    console.log(JSON.parse(_req.body).url)
+    console.log(_req.body["url"])       
+     console.log(new FinanceDataConverter(JSON.parse(_req.body).url).convert())
+  }
   const easyFinance = new EasyFinance()
   console.log(easyFinance)
   const financeTransactions: FinanceTransaction[] =
