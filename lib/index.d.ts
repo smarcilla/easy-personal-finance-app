@@ -1,1 +1,1 @@
-export { FinanceDataConverter } from './converters';
+export { FinanceDataConverter } from './converters'
