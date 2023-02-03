@@ -1,6 +1,6 @@
-import { CsvToJsonDataType, FinanceDataType } from '../types/finance.types';
+import { CsvToJsonDataType, FinanceDataType } from '../types/finance.types'
 export declare class FinanceMapper {
-    private readonly data;
-    constructor(data: CsvToJsonDataType);
-    map(): FinanceDataType;
+  private readonly data
+  constructor(data: CsvToJsonDataType)
+  map(): FinanceDataType
 }
