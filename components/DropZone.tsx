@@ -35,10 +35,18 @@ const DropZone: React.FC<Props> = ({ data, dispatch }) => {
 
     if (files && files.length > 0) {
       const existingFiles = data.fileList.map((f) => f.name)
-      files = files.filter((f) => !existingFiles.includes(f.name))
+      files = files.filter(
+        (f) =>
+          !existingFiles.includes(f.name) &&
+          (f.name.endsWith('.json') || f.name.endsWith('.csv')),
+      )
 
       dispatch({ type: 'ADD_FILE_TO_LIST', files })
       dispatch({ type: 'SET_IN_DROP_ZONE', inDropZone: false })
+      if (files.length === 0) {
+        alert("Error: Only '.json' or '.csv' files are accepted.")
+        return
+      }
     }
   }
 
@@ -47,9 +55,17 @@ const DropZone: React.FC<Props> = ({ data, dispatch }) => {
 
     if (files && files.length > 0) {
       const existingFiles = data.fileList.map((f) => f.name)
-      files = files.filter((f) => !existingFiles.includes(f.name))
+      files = files.filter(
+        (f) =>
+          !existingFiles.includes(f.name) &&
+          (f.name.endsWith('.json') || f.name.endsWith('.csv')),
+      )
 
       dispatch({ type: 'ADD_FILE_TO_LIST', files })
+    }
+    if (files.length === 0) {
+      alert("Error: Only '.json' or '.csv' files are accepted.")
+      return
     }
   }
 
