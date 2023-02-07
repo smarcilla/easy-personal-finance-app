@@ -1,6 +1,5 @@
 import { data } from './data/finance-transactions.json'
 import { EasyFinance } from 'easy-personal-finance'
-//import { FinanceTransactionEntity } from 'easy-personal-finance/lib/entities'
 import Link from 'next/link'
 
 //components
