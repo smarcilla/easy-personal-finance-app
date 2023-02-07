@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
 import FilePreview from './FilePreview'
-import styles from '../styles/DropZone.module.css'
 
 interface Props {
   data: any
@@ -91,36 +90,50 @@ const DropZone: React.FC<Props> = ({ data, dispatch }) => {
   }
 
   return (
-    <div className="px-20">
+    <>
       <div
-        className={styles.dropzone}
+        className="flex flex-col items-center justify-center border-dashed border-2 border-blue-300 rounded-lg mt-6 mb-6 ml-20 mr-20 p-3"
         onDrop={(e) => handleDrop(e)}
         onDragOver={(e) => handleDragOver(e)}
         onDragEnter={(e) => handleDragEnter(e)}
         onDragLeave={(e) => handleDragLeave(e)}
       >
-        <Image src="/upload.svg" alt="upload" height={50} width={50} />
+        <Image
+          src="/upload.svg"
+          alt="upload"
+          height={50}
+          width={50}
+          className="mt-3"
+        />
 
         <input
           id="fileSelect"
           type="file"
           accept=".json,.csv"
-          className={styles.files}
+          className="hidden"
           onChange={(e) => handleFileSelect(e)}
         />
-        <label htmlFor="fileSelect">You can select multiple Files</label>
+        <label
+          className="mt-3 py-2 px-4 bg-blue-500 rounded-lg text-white cursor-pointer hover:bg-blue-600 hover:text-white"
+          htmlFor="fileSelect"
+        >
+          You can select multiple Files
+        </label>
 
-        <h3 className={styles.uploadMessage}>
-          or drag &amp; drop your files here
-        </h3>
+        <h3 className="mt-6 text-center">or drag &amp; drop your files here</h3>
       </div>
       <FilePreview fileData={data} />
-      {data.fileList.length > 0 && (
-        <button className={styles.uploadBtn} onClick={uploadFiles}>
-          Upload
-        </button>
-      )}
-    </div>
+      <div className="text-center">
+        {data.fileList.length > 0 && (
+          <button
+            className="w-auto text-white mt-5  hover:bg-blue-600 bg-blue-500 rounded-lg cursor-pointer px-4 py-2"
+            onClick={uploadFiles}
+          >
+            Upload
+          </button>
+        )}
+      </div>
+    </>
   )
 }
 
