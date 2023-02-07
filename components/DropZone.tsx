@@ -104,7 +104,7 @@ const DropZone: React.FC<Props> = ({ data, dispatch }) => {
         <input
           id="fileSelect"
           type="file"
-          multiple
+          accept=".json,.csv"
           className={styles.files}
           onChange={(e) => handleFileSelect(e)}
         />

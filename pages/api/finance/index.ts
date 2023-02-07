@@ -3,7 +3,6 @@ import { EasyFinance } from 'easy-personal-finance'
 import { FinanceTransaction } from '@/pages/interfaces'
 import financeData from './data/finance-transactions.json'
 import crypto from 'crypto'
-import { FinanceDataConverter } from '../../../lib/index'
 
 const Multipart = require('parse-multipart-data')
 
