@@ -8,21 +8,32 @@ type TransactionSearcherProps = {
 }
 const TransactionSearcher: React.FC<TransactionSearcherProps> = ({ text }) => {
   return (
-    <nav className="bg-gray-800 p-3 flex justify-center items-center">
-      <Link href="/" className="text-white mt-4 font-medium w-1/4 flex-initial">
-        Home
-      </Link>
-      <div className="w-3/4 p-3 flex-initial">
-        <input
-          className="bg-dark text-light border-0 mt-4 text-center placeholder-gray-500 rounded-md py-2 pr-4 pl-10 block w-full appearance-none leading-normal"
-          type="text"
-          placeholder="Search your transaction"
-          autoFocus
-          /*     onChange={handleChange}*/
-          value={text}
-        />
+    <>
+      <div className="text-3xl text-center">
+        <p>Easy Personal Finance App</p>
       </div>
-    </nav>
+
+      <nav className="bg-gray-800 p-6 flex">
+        <Link href="/" className="text-white  font-medium ml-6">
+          Home
+        </Link>
+        <Link href="/reports" className="text-white font-medium ml-6">
+          Reports
+        </Link>
+        <div className="ml-24"></div>
+
+        <div className="w-3/4  flex-initial">
+          <input
+            className="bg-dark text-light border-0 text-center placeholder-gray-500 rounded-md ml-6 block w-full appearance-none leading-normal"
+            type="text"
+            placeholder="Search your transaction"
+            autoFocus
+            /*     onChange={handleChange}*/
+            value={text}
+          />
+        </div>
+      </nav>
+    </>
   )
 }
 
