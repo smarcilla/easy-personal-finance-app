@@ -9,10 +9,6 @@ type TransactionSearcherProps = {
 const TransactionSearcher: React.FC<TransactionSearcherProps> = ({ text }) => {
   return (
     <>
-      <div className="text-3xl text-center">
-        <p>Easy Personal Finance App</p>
-      </div>
-
       <nav className="bg-gray-800 p-6 flex">
         <Link href="/" className="text-white  font-medium ml-6">
           Home
@@ -33,6 +29,9 @@ const TransactionSearcher: React.FC<TransactionSearcherProps> = ({ text }) => {
           />
         </div>
       </nav>
+      <div className="text-3xl text-center">
+        <p>Easy Personal Finance App</p>
+      </div>
     </>
   )
 }
