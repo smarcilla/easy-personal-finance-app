@@ -38,10 +38,6 @@ export default function Index() {
 
   return (
     <>
-      <div className="text-3xl text-center">
-        <p>Easy Personal Finance App</p>
-      </div>
-
       <div className="bg-gray-100">
         <nav className="bg-gray-800 p-6">
           <Link href="/" className="text-white font-medium">
@@ -54,6 +50,9 @@ export default function Index() {
             Reports
           </Link>
         </nav>
+      </div>
+      <div className="text-3xl text-center">
+        <p>Easy Personal Finance App</p>
       </div>
       <section className="py-3 px-5">
         <p className="py-3 px-5">
