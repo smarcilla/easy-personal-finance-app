@@ -77,7 +77,7 @@ const DropZone: React.FC<Props> = ({ data, dispatch }) => {
       formData.append(`file_${index}`, file),
     )
 
-    const response = await fetch('/api/finance', {
+    const response = await fetch('/api/transactions', {
       method: 'POST',
       body: formData,
     })

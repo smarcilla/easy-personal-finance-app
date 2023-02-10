@@ -5,8 +5,6 @@ import FinancialTransaction from '../components/FinancialTransaction'
 import DropZone from '../components/DropZone'
 import React, { useReducer } from 'react'
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json())
-
 export default function Index() {
   const reduce = (state, action) => {
     switch (action.type) {
@@ -24,17 +22,6 @@ export default function Index() {
     inDropZone: false,
     fileList: [],
   })
-
-  const { data, error, isLoading } = useSWR<FinanceTransaction[]>(
-    '/api/finance',
-    fetcher,
-  )
-
-  if (error)
-    return <div className="text-3xl font-bold underline">Failed to load</div>
-  if (isLoading)
-    return <div className="text-3xl font-bold underline">Loading...</div>
-  if (!data) return null
 
   return (
     <>
