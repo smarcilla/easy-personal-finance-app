@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { FinanceTransactionEntity } from '@/../easy-personal-finance/lib/entities'
 import TransactionList from '@/components/TransactionComponents/TransactionList'
 import TransactionSearcher from '@/components/TransactionComponents/TransactionsSearcher'
+import { useEffect, useState } from 'react'
 
 type TransactionsProps = {
   transactions: FinanceTransactionEntity[]
@@ -13,8 +14,9 @@ type TransactionsProps = {
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 const Transactions: React.FC<TransactionsProps> = () => {
+  const [searchText, setSearchText] = useState('')
   const { data, error, isLoading } = useSWR<FinanceTransactionEntity[]>(
-    '/api/transactions',
+    searchText ? `/api/transactions?search=${searchText}` : '/api/transactions',
     fetcher,
   )
 
@@ -26,7 +28,10 @@ const Transactions: React.FC<TransactionsProps> = () => {
 
   return (
     <div>
-      <TransactionSearcher text="" />
+      <TransactionSearcher
+        searchText={searchText}
+        setSearchText={setSearchText}
+      />
       <TransactionList transactions={data} />
     </div>
   )

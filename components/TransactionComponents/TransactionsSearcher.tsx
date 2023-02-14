@@ -1,44 +1,17 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, SetStateAction, Dispatch } from 'react'
 import Link from 'next/link'
 
 type TransactionSearcherProps = {
-  text: string
+  searchText: string
+  setSearchText: Dispatch<SetStateAction<string>>
 }
-const TransactionSearcher: React.FC<TransactionSearcherProps> = ({ text }) => {
-  const [data, setData] = useState([])
-  const [isLoading, setLoading] = useState(false)
-  const [filter, setFilter] = useState('')
-  const [filteredData, setFilteredData] = useState([])
-
-  useEffect(() => {
-    setLoading(true)
-    fetch('/api/transactions')
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data)
-        setFilteredData(data)
-        setLoading(false)
-      })
-  }, [])
-
+const TransactionSearcher: React.FC<TransactionSearcherProps> = ({
+  searchText,
+  setSearchText,
+}) => {
   const handleChange = (e: any) => {
     const value = e.target.value
-    setFilter(value)
-    if (!value) {
-      setFilteredData(data)
-    } else {
-      setFilteredData(
-        data.filter((item: any) => {
-          const amountString = item.amount.toString()
-          return (
-            item.concept.toLowerCase().includes(value.toLowerCase()) ||
-            item.movement.toLowerCase().includes(value.toLowerCase()) ||
-            amountString.toLowerCase().includes(value.toLowerCase()) ||
-            item.notes.toLowerCase().includes(value.toLowerCase())
-          )
-        }),
-      )
-    }
+    setSearchText(value)
   }
 
   return (
@@ -59,38 +32,10 @@ const TransactionSearcher: React.FC<TransactionSearcherProps> = ({ text }) => {
             placeholder="Search your transaction"
             autoFocus
             onChange={handleChange}
-            value={filter}
+            value={searchText}
           />
         </div>
       </nav>
-      <div className="text-3xl text-center">
-        <p>Easy Personal Finance App</p>
-      </div>
-      {filter !== '' && (
-        <>
-          {filteredData.map((item) => {
-            return (
-              <div
-                className="grid grid-cols-5 gap-4 p-4 text-center"
-                key={item.id}
-              >
-                <div className="col-span-1">
-                  {item.date
-                    ?.toString()
-                    .substring(0, item.date.toString().length - 14)}
-                </div>
-                <div className="col-span-1">{item.concept}</div>
-                <div className="col-span-1">{item.movement}</div>
-                <div className="col-span-1">{item.amount}</div>
-                <div className="col-span-1">{item.notes}</div>
-              </div>
-            )
-          })}
-        </>
-      )}
-      {filter === '' && (
-        <p className="text-center text-gray-500">No searches</p>
-      )}
     </>
   )
 }
