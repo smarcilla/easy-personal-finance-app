@@ -1,16 +1,10 @@
-import React from 'react'
+import { FinanceTransactionEntity } from 'easy-personal-finance/lib/entities'
 
-interface Props {
-  transaction: {
-    date: Date
-    concept: string
-    movement: string
-    amount: number
-    notes: string
-  }
+type TransactionProps = {
+  transaction: FinanceTransactionEntity
 }
 
-const FinancialTransaction: React.FC<Props> = ({ transaction }) => {
+const Transaction: React.FC<TransactionProps> = ({ transaction }) => {
   return (
     <div className="bg-slate-150">
       <div className="flex shadow">
@@ -28,4 +22,4 @@ const FinancialTransaction: React.FC<Props> = ({ transaction }) => {
   )
 }
 
-export default FinancialTransaction
+export default Transaction
