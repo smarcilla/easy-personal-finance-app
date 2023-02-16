@@ -7,8 +7,8 @@ type TransactionProps = {
 const Transaction: React.FC<TransactionProps> = ({ transaction }) => {
   return (
     <div className="bg-slate-150">
-      <div className="flex shadow">
-        <div className="w-1/5 py-4 px-6">
+      <div className="flex py-4 px-6 text-base sx:text-sx sm:text-sm lg:text-base shadow">
+        <div className="w-1/5 py-3 px-5">
           {transaction.date
             ?.toString()
             .substring(0, transaction.date.toString().length - 14)}
