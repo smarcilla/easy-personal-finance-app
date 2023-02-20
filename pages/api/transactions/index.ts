@@ -1,5 +1,6 @@
-import EasyFinance from '@/../easy-personal-finance/lib'
-import { FinanceTransactionEntity } from '@/../easy-personal-finance/lib/entities'
+import { FinanceTransactionEntity } from 'easy-personal-finance/lib/entities'
+import { EasyFinance } from 'easy-personal-finance'
+
 import { NextApiResponse, NextApiRequest } from 'next'
 
 // https://github.com/vercel/next.js/tree/canary/examples/api-routes-rest/pages/api
