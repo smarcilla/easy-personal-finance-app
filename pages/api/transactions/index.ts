@@ -1,5 +1,5 @@
 import { FinanceTransactionEntity } from 'easy-personal-finance/lib/entities'
-import { EasyFinance } from 'easy-personal-finance'
+import { EasyFinance, UniqueEntityArray } from 'easy-personal-finance'
 
 import { NextApiResponse, NextApiRequest } from 'next'
 
@@ -36,7 +36,10 @@ export default function handler(
       .build()
       .find({ text: searchParam })
 
-    transactions = [...transactions, ...transactionsDraft]
+    transactions = new UniqueEntityArray([
+      ...transactions,
+      ...transactionsDraft,
+    ]).items
 
     console.log(transactions.length)
 
