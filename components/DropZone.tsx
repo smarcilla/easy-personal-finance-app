@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import FilePreview from './FilePreview'
+import { toast } from 'react-toastify'
 
 interface Props {
   data: any
@@ -43,7 +44,12 @@ const DropZone: React.FC<Props> = ({ data, dispatch }) => {
       dispatch({ type: 'ADD_FILE_TO_LIST', files })
       dispatch({ type: 'SET_IN_DROP_ZONE', inDropZone: false })
       if (files.length === 0) {
-        alert("Error: Only '.json' or '.csv' files are accepted.")
+        toast("Error: Only '.json' or '.csv' files are accepted.", {
+          hideProgressBar: true,
+          autoClose: 2000,
+          type: 'error',
+          position: 'bottom-right',
+        })
         return
       }
     }
@@ -63,7 +69,12 @@ const DropZone: React.FC<Props> = ({ data, dispatch }) => {
       dispatch({ type: 'ADD_FILE_TO_LIST', files })
     }
     if (files.length === 0) {
-      alert("Error: Only '.json' or '.csv' files are accepted.")
+      toast("Error: Only '.json' or '.csv' files are accepted.", {
+        hideProgressBar: true,
+        autoClose: 2000,
+        type: 'error',
+        position: 'bottom-right',
+      })
       return
     }
   }
@@ -83,9 +94,19 @@ const DropZone: React.FC<Props> = ({ data, dispatch }) => {
     })
 
     if (response.ok) {
-      alert('Files uploaded successfully')
+      toast('Files uploaded successfully', {
+        hideProgressBar: true,
+        autoClose: 2000,
+        type: 'success',
+        position: 'bottom-right',
+      })
     } else {
-      alert('Error uploading files')
+      toast('Error uploading files', {
+        hideProgressBar: true,
+        autoClose: 2000,
+        type: 'error',
+        position: 'bottom-right',
+      })
     }
   }
 
