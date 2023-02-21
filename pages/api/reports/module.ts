@@ -1,3 +1,4 @@
+import EasyFinance from 'easy-personal-finance'
 import { ReportController } from './controller'
 import { ReportService } from './service'
 
@@ -6,6 +7,6 @@ export class ReportModule {
 
   constructor() {
     const service = new ReportService()
-    this.controller = new ReportController(service)
+    this.controller = new ReportController(service, new EasyFinance())
   }
 }
