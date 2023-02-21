@@ -12,6 +12,11 @@ export default function Index() {
         return { ...state, inDropZone: action.inDropZone }
       case 'ADD_FILE_TO_LIST':
         return { ...state, fileList: state.fileList.concat(action.files) }
+      case 'DELETE_FILE_TO_LIST':
+        return {
+          ...state,
+          fileList: state.fileList.filter((file) => file.id !== action.payload),
+        }
       default:
         return state
     }
