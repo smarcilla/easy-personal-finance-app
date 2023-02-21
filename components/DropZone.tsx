@@ -146,12 +146,14 @@ const DropZone: React.FC<Props> = ({ data, dispatch }) => {
       <FilePreview fileData={data} />
       <div className="text-center">
         {data.fileList.length > 0 && (
-          <button
-            className="w-auto text-white mt-5  hover:bg-blue-600 bg-blue-500 rounded-lg cursor-pointer px-4 py-2"
-            onClick={uploadFiles}
-          >
-            Upload
-          </button>
+          <>
+            <button
+              className="w-auto text-white mt-5  hover:bg-blue-600 bg-blue-500 rounded-lg cursor-pointer px-4 py-2"
+              onClick={uploadFiles}
+            >
+              Upload
+            </button>
+          </>
         )}
       </div>
     </>
