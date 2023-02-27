@@ -24,7 +24,10 @@ export class ReportController {
   }
 
   private transformResult(result: Map<string, number>) {
-    return Array.from(result, ([description, amount]) => ({ description, amount }))
+    return Array.from(result, ([description, amount]) => ({
+      description,
+      amount,
+    }))
   }
 
   async getIncomesByConcept() {
