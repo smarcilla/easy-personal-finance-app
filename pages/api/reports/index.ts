@@ -26,7 +26,7 @@ export default async function handler(
     expensesByNotes: await reportController.getExpensesByNotes(),
   }
 
-  console.info(response);
+  console.info(response)
 
   return res.status(200).json(response)
 }
