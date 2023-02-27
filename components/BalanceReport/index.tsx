@@ -1,7 +1,7 @@
-import { BalanceReportEntity } from 'easy-personal-finance/lib/reports'
+import { TotalReportEntity } from '@/entities/TotalReportEntity'
 
 type BalanceReportProps = {
-  report: BalanceReportEntity
+  report: TotalReportEntity
 }
 const BalanceReport: React.FC<BalanceReportProps> = ({ report }) => {
   return (
@@ -10,13 +10,19 @@ const BalanceReport: React.FC<BalanceReportProps> = ({ report }) => {
         <div className="font-bold text-base text-center mt-2">
           Total Incomes :
         </div>
-        <div className="text-center bg-green-100">{report.totalIncomes}0</div>
+        <div className="text-center bg-green-100">
+          {report.balance.totalIncomes}
+        </div>
         <div className="font-bold text-base text-center mt-2">
           Total Expenses :
         </div>
-        <div className="text-center  bg-red-100">{report.totalExpenses}0</div>
+        <div className="text-center  bg-red-100">
+          {report.balance.totalExpenses}
+        </div>
         <div className="font-bold text-base text-center mt-2">Balance :</div>
-        <div className="text-center bg-orange-100">{report.totalExpenses}0</div>
+        <div className="text-center bg-orange-100">
+          {report.balance.totalExpenses}
+        </div>
       </div>
 
       <section className="grid grid-cols-2 mt-20 px-4 py-6">
@@ -27,7 +33,13 @@ const BalanceReport: React.FC<BalanceReportProps> = ({ report }) => {
           <div className="grid grid-cols-2 py-6 bg-green-100">
             <div className="font-bold text-base">Incomes</div>
             <div className="font-bold text-base">TOTAL Incomes</div>
-            {/* Concept - Incomes*/}
+            <ul>
+              {report.incomesByConcept.map(({ description, amount }) => (
+                <li key={description}>
+                  {description} - {amount}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
@@ -38,7 +50,13 @@ const BalanceReport: React.FC<BalanceReportProps> = ({ report }) => {
           <div className="grid grid-cols-2 py-6 bg-red-100">
             <div className="font-bold text-base">Expenses</div>
             <div className="font-bold text-base">TOTAL Expenses</div>
-            {/* Concept - Expenses*/}
+            <ul>
+              {report.expensesByConcept.map(({ description, amount }) => (
+                <li key={description}>
+                  {description} - {amount}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -46,25 +64,37 @@ const BalanceReport: React.FC<BalanceReportProps> = ({ report }) => {
       <section className="grid grid-cols-2 mt-20 px-4 py-6">
         <div>
           <div className="bg-gray-200 font-bold text-base py-3 rounded-tl-lg">
-            Income per transaction
+            Income per movements
           </div>
           <div className="grid grid-cols-2 py-6  bg-green-100">
             <div className="font-bold text-base">Incomes</div>
             <div className="font-bold text-base rounded-tr-lg">
               TOTAL Incomes
             </div>
-            {/* Transaction - Incomes*/}
+            <ul>
+              {report.incomesByMovement.map(({ description, amount }) => (
+                <li key={description}>
+                  {description} - {amount}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
         <div>
           <div className="bg-gray-200 font-bold text-base py-3 rounded-tr-lg">
-            Expenses per transaction
+            Expenses per movement
           </div>
           <div className="grid grid-cols-2 py-6  bg-red-100">
             <div className="font-bold text-base">Expenses</div>
             <div className="font-bold text-base">TOTAL Expenses</div>
-            {/* Transaction - Expenses*/}
+            <ul>
+              {report.expensesByMovement.map(({ description, amount }) => (
+                <li key={description}>
+                  {description} - {amount}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -77,7 +107,13 @@ const BalanceReport: React.FC<BalanceReportProps> = ({ report }) => {
           <div className="grid grid-cols-2 py-6  bg-green-100">
             <div className="font-bold text-base">Incomes</div>
             <div className="font-bold text-base">TOTAL Incomes</div>
-            {/* Transaction - Incomes*/}
+            <ul>
+              {report.incomesByNotes.map(({ description, amount }) => (
+                <li key={description}>
+                  {description} - {amount}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
@@ -88,7 +124,13 @@ const BalanceReport: React.FC<BalanceReportProps> = ({ report }) => {
           <div className="grid grid-cols-2 py-6  bg-red-100">
             <div className="font-bold text-base">Expenses</div>
             <div className="font-bold text-base">TOTAL Expenses</div>
-            {/* Transaction - Expenses*/}
+            <ul>
+              {report.expensesByNotes.map(({ description, amount }) => (
+                <li key={description}>
+                  {description} - {amount}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>

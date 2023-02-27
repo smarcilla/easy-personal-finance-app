@@ -5,11 +5,12 @@ import BalanceReport from '@/components/BalanceReport'
 import { FinanceTransactionEntity } from '@/../easy-personal-finance/lib/entities'
 import { BalanceReportEntity } from '@/../easy-personal-finance/lib/reports'
 import { useEffect } from 'react'
+import { TotalReportEntity } from '@/entities/TotalReportEntity'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 export default function Reports() {
-  const { data, error, isLoading } = useSWR<BalanceReportEntity>(
+  const { data, error, isLoading } = useSWR<TotalReportEntity>(
     '/api/reports',
     fetcher,
   )
