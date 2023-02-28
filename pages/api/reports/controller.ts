@@ -23,6 +23,13 @@ export class ReportController {
     return reportService.calculateReport()
   }
 
+  private transformResult(result: Map<string, number>) {
+    return Array.from(result, ([description, amount]) => ({
+      description,
+      amount: amount.toFixed(2).toLocaleString(),
+    }))
+  }
+
   async getIncomesByConcept() {
     const financeEntities = await this.service.getTransactions()
     const reportService = this.easyFinance.reports
@@ -30,7 +37,7 @@ export class ReportController {
       .withData(financeEntities)
       .build() as IncomeService
 
-    return reportService.calculate('concept')
+    return this.transformResult(reportService.calculate('concept'))
   }
 
   async getIncomesByMovement() {
@@ -40,7 +47,7 @@ export class ReportController {
       .withData(financeEntities)
       .build() as IncomeService
 
-    return reportService.calculate('movement')
+    return this.transformResult(reportService.calculate('movement'))
   }
 
   async getIncomesByNotes() {
@@ -50,7 +57,7 @@ export class ReportController {
       .withData(financeEntities)
       .build() as IncomeService
 
-    return reportService.calculate('notes')
+    return this.transformResult(reportService.calculate('notes'))
   }
 
   async getExpensesByConcept() {
@@ -60,7 +67,7 @@ export class ReportController {
       .withData(financeEntities)
       .build() as ExpenseService
 
-    return reportService.calculate('concept')
+    return this.transformResult(reportService.calculate('concept'))
   }
 
   async getExpensesByMovement() {
@@ -70,7 +77,7 @@ export class ReportController {
       .withData(financeEntities)
       .build() as ExpenseService
 
-    return reportService.calculate('movement')
+    return this.transformResult(reportService.calculate('movement'))
   }
 
   async getExpensesByNotes() {
@@ -80,6 +87,6 @@ export class ReportController {
       .withData(financeEntities)
       .build() as ExpenseService
 
-    return reportService.calculate('notes')
+    return this.transformResult(reportService.calculate('notes'))
   }
 }

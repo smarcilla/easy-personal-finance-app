@@ -1,18 +1,11 @@
+import { TotalReportEntity } from '@/entities/TotalReportEntity'
 import { BalanceReportEntity } from 'easy-personal-finance/lib/reports'
 import { NextApiRequest, NextApiResponse } from 'next'
 import { ReportModule } from './module'
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<{
-    balance: BalanceReportEntity
-    incomesByConcept: Map<string, number>
-    incomesByMovement: Map<string, number>
-    incomesByNotes: Map<string, number>
-    expensesByConcept: Map<string, number>
-    expensesByMovement: Map<string, number>
-    expensesByNotes: Map<string, number>
-  }>,
+  res: NextApiResponse<TotalReportEntity>,
 ) {
   const reportController = new ReportModule().controller
 
@@ -26,7 +19,7 @@ export default async function handler(
     expensesByNotes: await reportController.getExpensesByNotes(),
   }
 
-  console.info(response);
+  console.info(response)
 
   return res.status(200).json(response)
 }
