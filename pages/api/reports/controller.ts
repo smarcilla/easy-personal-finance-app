@@ -26,7 +26,7 @@ export class ReportController {
   private transformResult(result: Map<string, number>) {
     return Array.from(result, ([description, amount]) => ({
       description,
-      amount,
+      amount: amount.toFixed(2).toLocaleString(),
     }))
   }
 
